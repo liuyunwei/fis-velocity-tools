@@ -62,6 +62,7 @@ public class ListenerTask extends TimerTask {
                 setRefresh();
                 filelist = currentFiles;
             }else{
+                Arrays.sort(filelist);
                 // 对比文件
                 for (int i = 0; i < currentFiles.length; i++) {
                     if (Arrays.binarySearch(filelist, currentFiles[i]) > -1){

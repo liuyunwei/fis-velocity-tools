@@ -78,8 +78,14 @@ public class MapCache {
 
                     if (json != null) {
                         System.out.println("Load map file : " + fileName);
-                        resMap = mergeJSONObjects(resMap, json.getJSONObject("res"));
-                        pkgMap = mergeJSONObjects(pkgMap, json.getJSONObject("pkg"));
+                        JSONObject tmpRes = json.getJSONObject("res");
+                        if(tmpRes != null) {
+                            resMap = mergeJSONObjects(resMap, tmpRes);
+                        }
+                        tmpRes = json.getJSONObject("pkg");
+                        if(tmpRes != null) {
+                            pkgMap = mergeJSONObjects(pkgMap, tmpRes);
+                        }
                     }
                 }
             }
